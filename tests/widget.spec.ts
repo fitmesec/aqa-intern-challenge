@@ -10,8 +10,8 @@ test.describe('Uchi.ru widget ', () => {
     // open uchi.ru main page
     await page.goto('/');
 
-    // close cookies popup
-    await page.click('._UCHI_COOKIE__button');
+    // close cookies popup (it may not appear, so don't fail the test on it)
+    await page.click('._UCHI_COOKIE__button').catch(() => {});
   });
 
   test('opens', async ({page}) => {
